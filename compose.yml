@@ -1,6 +1,6 @@
 services:
   web:
-    build: ./app
+    build: ./app/Dockerfile
     ports:
       - '5000:5000'
 
