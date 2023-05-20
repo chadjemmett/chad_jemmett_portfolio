@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+	<title>Chad Jemmett | Backend Developer | chad.jemmett@gmail.com</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="stylesheet" type="text/css" href="static/yahoo.css" media="all" /> 
+	<link rel="stylesheet" type="text/css" href="static/resume.css" media="all" />
+	<!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> --> 
+
+</head>
+<body>
+
+    <form method="POST" action='/leaderboard'>
+        <select name="platform" >
+            <option value="">Platform</option>
+            {% for c in data['platform'] %}
+            <option value="{{ c }}" id={{ c }}>{{ c }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="country" id='country' onchange='showStages()'>
+            <option value="">Country</option>
+            {% for c in data['countries'] %}
+            <option value="{{ c }}" id={{ c }}>{{ c }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="group" >
+            <option value="">Group</option>
+            {% for c in data['group'] %}
+            <option value="{{ c }}" id={{ c }}>{{ c }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="direction" >
+            <option value="">Direction</option>
+            {% for c in data['direction'] %}
+            <option value="{{ c }}" id={{ c }}>{{ c }}</option>
+            {% endfor %}
+        </select>
+        <select name="wx" >
+            <option value="">Weather</option>
+            {% for c in data['wx'] %}
+                <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="finland" style="display: none" >
+            <option value="">Finland Tracks</option>
+            {% for c in data['finland'] %}
+                <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">
+            Submit
+        </button>
+
+    </form>
+    <script>
+        function showStages(e) {
+            var sel = document.getElementById("country")
+            var m = document.getElementById(sel.value)
+            m.style.property= "display: inline;"
+            switch(document.getElementById('country').value) {
+                case 'finland':
+                    console.log("Finland")
+                    break;
+                case 'germany':
+                    console.log("Germany")
+                    break;
+
+            }
+
+        }
+
+
+
+
+    </script>
+</body>
+
+<!--// doc -->
+
+
+</html>
+
